@@ -54,7 +54,7 @@ export default function ContactUs() {
       <section className="relative h-64 flex items-center justify-center bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="text-center z-10 px-4">
           <h1 className="text-4xl font-bold text-rose-800 mb-4">
-            Contact Milk Haven
+            Contact Milk Pukki
           </h1>
           <p className="text-xl text-rose-700">We&apos;d love to hear from you!</p>
         </div>
@@ -130,7 +130,7 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-800">Farm Address</h3>
-                    <p className="text-gray-700">addis ababa</p>
+                    <p className="text-gray-700">Addis Ababa, Akaki Kality Subcity</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -139,7 +139,7 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-800">Phone</h3>
-                    <p className="text-gray-700">+2t1 989767868</p>
+                    <p className="text-gray-700">+251 9123456789</p>
                     <p className="text-sm text-gray-500">
                       Mon-Fri, 2am-11pm LT
                     </p>

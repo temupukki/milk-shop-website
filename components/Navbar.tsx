@@ -5,7 +5,7 @@ export default function Navbar() {
     <div className="sticky top-0 z-50  w-full ">
       <nav className="w-full bg-white text-rose-800 flex flex-col md:flex-row items-center justify-between p-4 shadow-md">
         <h1 className="font-bold text-pink-900 text-[32px] tracking-wide pt-4 pb-4 pl-12">
-          Milk Shop
+          Milk Pukki
         </h1>
 
         <ul className="flex gap-6 flex-col md:flex-row items-center mt-4 md:mt-0 text-[18px]  pr-12">

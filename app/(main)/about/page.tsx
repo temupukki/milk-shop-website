@@ -9,7 +9,7 @@ export default function AboutUs() {
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src="/farm-landscape.jpg"
-            alt="Milk Haven Farm Landscape"
+            alt="Milk Pukki Farm Landscape"
             fill
             className="object-cover opacity-20"
           />
@@ -30,7 +30,7 @@ export default function AboutUs() {
             <div className="relative h-96 rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/homestory.jpg"
-                alt="Milk Haven Family Farmers"
+                alt="Milk Pukki Family Farmers"
                 fill
                 className="object-cover"
               />
@@ -41,14 +41,14 @@ export default function AboutUs() {
               From Our Family to Yours
             </h2>
             <p className="text-gray-700 mb-4">
-              Milk Haven began in 1985 when Grandpa Henry bought his first dairy
+              Milk Pukki began in 1985 when Grandpa Henry bought his first dairy
               cow, Bessie. What started as a small family operation has grown
               into a beloved local dairy, but we&apos;ve never lost sight of our
               roots.
             </p>
             <p className="text-gray-700 mb-6">
               Today, we still milk our cows by hand twice daily, refusing to
-              compromise on quality for scale. Every bottle of Milk Haven
+              compromise on quality for scale. Every bottle of Milk Pukki
               carries three generations of care and tradition.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -118,7 +118,7 @@ export default function AboutUs() {
 
       <section className="py-16 container mx-auto px-4">
         <h2 className="text-3xl font-bold text-rose-800 mb-12 text-center">
-          Meet the Milk Haven Family
+          Meet the Milk Pukki Family
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
@@ -174,7 +174,7 @@ export default function AboutUs() {
       <section className="py-16 bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-rose-800 mb-6">
-            Taste the Milk Haven Difference
+            Taste the Milk Pukki Difference
           </h2>
           <p className="text-xl text-rose-700 mb-8 max-w-2xl mx-auto">
             Visit our farm store or order fresh delivery to your doorstep

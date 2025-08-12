@@ -96,7 +96,7 @@ export default async function Home() {
             <div className="md:w-1/2">
               <h2 className="text-3xl font-bold text-rose-800 mb-6">Our Dairy Story</h2>
               <p className="text-gray-700 mb-4">
-                Milk Haven began as a small family farm in 1985 with just 10 cows. Today, we maintain those same values of quality and care while serving thousands of happy customers.
+                Milk Pukki began as a small family farm in 1985 with just 10 cows. Today, we maintain those same values of quality and care while serving thousands of happy customers.
               </p>
               <p className="text-gray-700 mb-6">
                 We believe in sustainable farming practices that respect both the animals and the land. Our cows are pasture-raised and treated with the utmost care.
