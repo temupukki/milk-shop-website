@@ -1,18 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
-import prisma  from '@/lib/prisma'; // adjust if you use another path
+import prisma from '@/lib/prisma';
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  const orderId = params.id;
+  const orderId = context.params.id;
 
   try {
     const body = await req.json();
 
     const updatedOrder = await prisma.order.update({
       where: { id: orderId },
-      data: { status: body.status }, // should be 'DELIVERED'
+      data: { status: body.status }, // e.g. 'DELIVERED'
     });
 
     return NextResponse.json({ success: true, order: updatedOrder });
