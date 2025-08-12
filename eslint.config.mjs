@@ -22,6 +22,10 @@ export default [
 
   // Global settings
   {
+    ignores: [
+      'lib/generated/', 
+      
+    ],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
