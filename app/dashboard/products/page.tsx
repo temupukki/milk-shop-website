@@ -130,9 +130,9 @@ export default function ProductsPage() {
   const handleIncreaseQuantity = async (productId: number) => {
     const product = products.find((p) => p.id === productId);
     const cartItem = cartItems.find((item) => item.id === productId);
+    const stock = product?.stock ?? 0;
 
-    // Check if stock is less than 1 (either 0 or negative)
-    if (product.stock < 1) {
+    if (stock < 1) {
       toast.warning("This product is out of stock");
       return;
     }
