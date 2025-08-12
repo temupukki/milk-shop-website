@@ -2,11 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
 export async function PATCH(
-  req: NextRequest,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   const orderId = params.id;
 
+  // Validate the order ID
   if (!orderId) {
     return NextResponse.json(
       { error: 'Order ID is required' },
@@ -15,30 +16,33 @@ export async function PATCH(
   }
 
   try {
+    const body = await request.json();
+
     // Validate the request body
-    const body = await req.json();
-    if (!body.status || body.status !== 'DELIVERED') {
+    if (!body.status) {
       return NextResponse.json(
-        { error: 'Status must be set to "DELIVERED"' },
+        { error: 'Status is required in the request body' },
         { status: 400 }
       );
     }
 
-    // Update the order status
     const updatedOrder = await prisma.order.update({
       where: { id: orderId },
-      data: { 
-        status: 'DELIVERED',
-       
-      },
+      data: { status: body.status },
     });
 
-    return NextResponse.json({ 
-      success: true, 
-      order: updatedOrder 
-    });
+    return NextResponse.json({ success: true, order: updatedOrder });
   } catch (error) {
     console.error('Failed to update order:', error);
+    
+
+    if (error instanceof Error && error.message.includes('RecordNotFound')) {
+      return NextResponse.json(
+        { error: 'Order not found' },
+        { status: 404 }
+      );
+    }
+
     return NextResponse.json(
       { error: 'Failed to update order status' },
       { status: 500 }
