@@ -5,6 +5,7 @@ import { FaLeaf, FaHeart, FaAward, FaTruck } from "react-icons/fa";
 export default function AboutUs() {
   return (
     <div className="min-h-screen bg-rose-50">
+       <title> About | Milk Pukki</title>
       <section className="relative h-96 flex items-center justify-center bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="absolute inset-0 overflow-hidden">
           <Image

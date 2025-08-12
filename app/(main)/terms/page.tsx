@@ -3,14 +3,7 @@ import Head from "next/head";
 export default function TermsOfService() {
   return (
     <div className="min-h-screen bg-rose-50">
-      <Head>
-        <title>Terms of Service | Milk Haven</title>
-        <meta
-          name="description"
-          content="Milk Haven's terms and conditions for website use and product purchases"
-        />
-      </Head>
-
+      <title>Terms of Service | Milk Haven</title>
       <section className="relative h-64 flex items-center justify-center bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="text-center z-10 px-4">
           <h1 className="text-4xl font-bold text-rose-800 mb-4">
@@ -83,7 +76,8 @@ export default function TermsOfService() {
                 for refund policy)
               </li>
               <li>
-                You&apos;re responsible for providing accurate delivery information
+                You&apos;re responsible for providing accurate delivery
+                information
               </li>
               <li>Risk of loss transfers to you upon delivery</li>
             </ul>
@@ -102,7 +96,9 @@ export default function TermsOfService() {
             </h3>
             <ul className="list-disc pl-6 space-y-2">
               <li>All website content is owned by Milk Haven</li>
-              <li>&quot;Milk Haven&quot; and our logo are registered trademarks</li>
+              <li>
+                &quot;Milk Haven&quot; and our logo are registered trademarks
+              </li>
               <li>No content may be reproduced without permission</li>
             </ul>
 

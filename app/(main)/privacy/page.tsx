@@ -3,13 +3,7 @@ import Head from "next/head";
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-rose-50">
-      <Head>
-        <title>Privacy Policy | Milk Haven</title>
-        <meta
-          name="description"
-          content="Learn how Milk Haven collects and protects your personal information"
-        />
-      </Head>
+      <title>Privacy Policy | Milk Haven</title>
 
       <section className="relative h-64 flex items-center justify-center bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="text-center z-10 px-4">
@@ -136,9 +130,9 @@ export default function PrivacyPolicy() {
             </h3>
             <p>
               We may update this policy periodically. The updated version will
-              be posted here with a new &quot;Last Updated&quot; date. Significant changes
-              will be communicated via email (if we have your contact
-              information).
+              be posted here with a new &quot;Last Updated&quot; date.
+              Significant changes will be communicated via email (if we have
+              your contact information).
             </p>
 
             <h3 className="text-xl font-bold text-rose-800 mt-8 mb-4">

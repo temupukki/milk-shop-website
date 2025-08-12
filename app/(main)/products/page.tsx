@@ -61,6 +61,7 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-rose-50">
+       <title> Products | Milk Pukki</title>
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8 flex flex-col items-center">
           <h2 className="text-2xl font-bold text-rose-800 mb-6">Our Dairy Products</h2>

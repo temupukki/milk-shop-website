@@ -51,6 +51,7 @@ export default function ContactUs() {
 
   return (
     <div className="min-h-screen bg-rose-50">
+       <title>Contact | Milk Pukki</title>
       <section className="relative h-64 flex items-center justify-center bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="text-center z-10 px-4">
           <h1 className="text-4xl font-bold text-rose-800 mb-4">

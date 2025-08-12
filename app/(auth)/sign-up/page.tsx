@@ -76,6 +76,7 @@ export default function Signup() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50 via-rose-100 to-rose-200 px-6">
+        <title> Sign Up | Milk Pukki</title>
       <Card className="w-full max-w-md p-8 bg-white rounded-2xl shadow-xl border border-rose-200">
         <CardHeader className="text-center space-y-2 mb-6">
           <CardTitle className="text-4xl font-extrabold text-rose-700">
