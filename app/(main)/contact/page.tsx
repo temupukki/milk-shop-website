@@ -104,7 +104,7 @@ export default function ContactUs() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows="5"
+                 
                   className="w-full px-4 py-3  text-red-700 font-bold borderrounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400"
                   required
                 ></textarea>
