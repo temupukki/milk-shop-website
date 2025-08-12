@@ -22,9 +22,12 @@ export default [
 
   // Global settings
   {
-    // ✅ Ignore Prisma generated files so ESLint doesn't break on wasm.js or default.js
     ignores: [
-      'lib/generated/',
+      '**/lib/generated/**', // Fixed ignore pattern to properly exclude Prisma files
+      'node_modules/',
+      '.next/',
+      'dist/',
+      'build/'
     ],
     languageOptions: {
       ecmaVersion: 'latest',
@@ -55,12 +58,14 @@ export default [
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
-      '@next/next/no-html-link-for-pages': 'error'
+      '@next/next/no-html-link-for-pages': 'error',
+      '@next/next/no-img-element': 'off' // Consider enabling if you don't need img elements
     }
   },
 
   // TypeScript rules
   {
+    files: ['**/*.ts', '**/*.tsx'],
     plugins: {
       '@typescript-eslint': tsPlugin
     },
@@ -72,12 +77,17 @@ export default [
         'warn',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
       ],
-      '@typescript-eslint/consistent-type-imports': 'error'
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-misused-promises': [
+        'error',
+        { checksVoidReturn: false }
+      ]
     }
   },
 
   // React rules
   {
+    files: ['**/*.tsx', '**/*.jsx'],
     plugins: {
       'react-hooks': reactHooks
     },
@@ -110,7 +120,8 @@ export default [
       ],
       'import/no-duplicates': 'error',
       'import/no-unresolved': 'error',
-      'import/named': 'error'
+      'import/named': 'error',
+      'import/no-default-export': 'off' // Enable if you don't use default exports
     }
   },
 
@@ -120,7 +131,17 @@ export default [
       'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
       'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
       'prefer-const': 'error',
-      'arrow-body-style': ['error', 'as-needed']
+      'arrow-body-style': ['error', 'as-needed'],
+      'quotes': ['error', 'single', { avoidEscape: true }],
+      'semi': ['error', 'always']
     }
-  }
+  },
+
+  // Compatibility layer for legacy configs if needed
+  ...compat.config({
+    extends: [
+      'plugin:react/recommended',
+      'plugin:react/jsx-runtime'
+    ]
+  })
 ]
