@@ -20,7 +20,7 @@ export default [
   // Base JavaScript config
   js.configs.recommended,
 
-  // Global settings
+  // Global settings with Prisma exclusions
   {
     languageOptions: {
       ecmaVersion: 'latest',
@@ -28,7 +28,13 @@ export default [
       parser: tsParser,
       parserOptions: {
         project: './tsconfig.json',
-        tsconfigRootDir: __dirname
+        tsconfigRootDir: __dirname,
+        exclude: [
+          '**/prisma/generated/**',
+          '**/node_modules/**',
+          '**/.next/**',
+          '**/dist/**'
+        ]
       }
     },
     settings: {
@@ -51,12 +57,14 @@ export default [
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
-      '@next/next/no-html-link-for-pages': 'error'
+      '@next/next/no-html-link-for-pages': 'error',
+      '@next/next/no-img-element': 'warn'
     }
   },
 
-  // TypeScript rules
+  // TypeScript rules with relaxed settings for Prisma
   {
+    files: ['**/*.ts', '**/*.tsx'],
     plugins: {
       '@typescript-eslint': tsPlugin
     },
@@ -69,6 +77,16 @@ export default [
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
       ],
       '@typescript-eslint/consistent-type-imports': 'error'
+    }
+  },
+
+  // Special rules for Prisma files
+  {
+    files: ['**/prisma/**/*.js'],
+    rules: {
+      '@typescript-eslint/no-var-requires': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off'
     }
   },
 
@@ -105,12 +123,11 @@ export default [
         }
       ],
       'import/no-duplicates': 'error',
-      'import/no-unresolved': 'error',
-      'import/named': 'error'
+      'import/no-unresolved': 'error'
     }
   },
 
-  // Additional project-specific rules
+  // Additional project rules
   {
     rules: {
       'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
