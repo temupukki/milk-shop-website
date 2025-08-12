@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     // Extract order ID from the reference
     const orderId = txRef.split('-')[1];
 
-    // Update order status in your database
+
     await prisma.order.update({
       where: { id: orderId },
       data: { 
