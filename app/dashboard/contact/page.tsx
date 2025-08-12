@@ -18,32 +18,32 @@ export default function ContactUs() {
     email: "",
     message: "",
   });
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  
-  try {
-    // Send data to your backend API
-    const response = await fetch('/api/submit-form', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-    if (response.ok) {
-      toast.success(
-        `Thanks for your message, ${formData.name}! We'll respond soon.`
-      );
-      setFormData({ name: "", email: "", message: "" });
-    } else {
-      throw new Error('Failed to submit form');
+    try {
+      // Send data to your backend API
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success(
+          `Thanks for your message, ${formData.name}! We'll respond soon.`
+        );
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Failed to submit form");
+      }
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+      console.error(error);
     }
-  } catch (error) {
-    toast.error('Failed to send message. Please try again.');
-    console.error(error);
-  }
-};
+  };
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -108,13 +108,11 @@ const handleSubmit = async (e: React.FormEvent) => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows="5"
                   className="w-full px-4 py-3  text-red-700 font-bold borderrounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400"
                   required
                 ></textarea>
               </div>
               <button
-             
                 type="submit"
                 className="w-full bg-rose-600 hover:bg-rose-700 text-white font-semibold py-3 px-6 rounded-lg shadow transition"
               >
@@ -176,46 +174,46 @@ const handleSubmit = async (e: React.FormEvent) => {
               </div>
             </div>
 
-           {/* Social Media */}
-<div className="bg-white rounded-xl shadow-md p-8">
-  <h2 className="text-2xl font-bold text-rose-800 mb-6">
-    Connect With Us
-  </h2>
-  <div className="flex space-x-4">
-    <a
-      href="https://facebook.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition"
-    >
-      <FaFacebook className="text-xl" />
-    </a>
-    <a
-      href="https://instagram.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-full hover:opacity-90 transition"
-    >
-      <FaInstagram className="text-xl" />
-    </a>
-    <a
-      href="https://twitter.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-blue-400 text-white p-3 rounded-full hover:bg-gray-800 transition"
-    >
-      <FaTwitter className="text-xl" />
-    </a>
-    <a
-      href="https://t.me/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 transition"
-    >
-      <FaTelegram className="text-xl" />
-    </a>
-  </div>
-</div>
+            {/* Social Media */}
+            <div className="bg-white rounded-xl shadow-md p-8">
+              <h2 className="text-2xl font-bold text-rose-800 mb-6">
+                Connect With Us
+              </h2>
+              <div className="flex space-x-4">
+                <a
+                  href="https://facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition"
+                >
+                  <FaFacebook className="text-xl" />
+                </a>
+                <a
+                  href="https://instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-full hover:opacity-90 transition"
+                >
+                  <FaInstagram className="text-xl" />
+                </a>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-400 text-white p-3 rounded-full hover:bg-gray-800 transition"
+                >
+                  <FaTwitter className="text-xl" />
+                </a>
+                <a
+                  href="https://t.me/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 transition"
+                >
+                  <FaTelegram className="text-xl" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
