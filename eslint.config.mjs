@@ -29,18 +29,11 @@ export default [
       parserOptions: {
         project: './tsconfig.json',
         tsconfigRootDir: __dirname
-      },
-      globals: {
-        React: 'readonly',
-        JSX: 'readonly'
       }
     },
     settings: {
       next: {
         rootDir: __dirname
-      },
-      react: {
-        version: 'detect'
       },
       'import/resolver': {
         typescript: {
@@ -58,8 +51,7 @@ export default [
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
-      '@next/next/no-html-link-for-pages': 'error',
-      '@next/next/no-img-element': 'warn'
+      '@next/next/no-html-link-for-pages': 'error'
     }
   },
 
@@ -74,14 +66,9 @@ export default [
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': [
         'warn',
-        { 
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-          caughtErrorsIgnorePattern: '^_'
-        }
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
       ],
-      '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/no-floating-promises': 'error'
+      '@typescript-eslint/consistent-type-imports': 'error'
     }
   },
 
@@ -114,30 +101,22 @@ export default [
             'index'
           ],
           'newlines-between': 'always',
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true
-          }
+          alphabetize: { order: 'asc', caseInsensitive: true }
         }
       ],
       'import/no-duplicates': 'error',
-      'import/no-unresolved': 'error'
+      'import/no-unresolved': 'error',
+      'import/named': 'error'
     }
   },
 
-  // Additional project rules
+  // Additional project-specific rules
   {
     rules: {
       'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
       'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
       'prefer-const': 'error',
-      'arrow-body-style': ['error', 'as-needed'],
-      'padding-line-between-statements': [
-        'error',
-        { blankLine: 'always', prev: '*', next: 'return' },
-        { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
-        { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] }
-      ]
+      'arrow-body-style': ['error', 'as-needed']
     }
   }
 ]
