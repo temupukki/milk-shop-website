@@ -79,7 +79,7 @@ export default function OrdersPage() {
           const now = new Date();
 
           if (now > expirationTime) {
-            // Order is already expired, handled in cleanup
+       
             return;
           }
 
@@ -99,7 +99,7 @@ export default function OrdersPage() {
   }, []);
 
   useEffect(() => {
-    // Set up interval for countdown timers
+   
     const interval = setInterval(() => {
       const now = new Date();
       const updatedCountdowns: Record<string, string> = {};
@@ -109,7 +109,7 @@ export default function OrdersPage() {
         const order = orders.find((o) => o.id === orderId);
         if (order && order.status === "PENDING") {
           const createdAt = new Date(order.createdAt);
-          const expirationTime = addHours(createdAt,24); // make sure same expiration time
+          const expirationTime = addHours(createdAt,24);
           const timeLeft = differenceInMilliseconds(expirationTime, now);
 
           if (timeLeft <= 0) {

@@ -3,11 +3,10 @@ import prisma from '@/lib/prisma';
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  const orderId = params.id;
+  const orderId = context.params.id;
 
-  // Validate the order ID
   if (!orderId) {
     return NextResponse.json(
       { error: 'Order ID is required' },
@@ -18,7 +17,6 @@ export async function PATCH(
   try {
     const body = await request.json();
 
-    // Validate the request body
     if (!body.status) {
       return NextResponse.json(
         { error: 'Status is required in the request body' },
@@ -35,7 +33,6 @@ export async function PATCH(
   } catch (error) {
     console.error('Failed to update order:', error);
     
-
     if (error instanceof Error && error.message.includes('RecordNotFound')) {
       return NextResponse.json(
         { error: 'Order not found' },
