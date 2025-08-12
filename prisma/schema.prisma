@@ -110,6 +110,7 @@ model Order {
   updatedAt   DateTime    @updatedAt
   shipping    Shipping?
   paymentVerified  Boolean  @default(false)
+  paymentReference String?
 }
 
 model OrderItem {
