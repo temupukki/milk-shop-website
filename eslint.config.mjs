@@ -7,6 +7,8 @@ import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
 import reactHooks from 'eslint-plugin-react-hooks'
 import importPlugin from 'eslint-plugin-import'
+import unicornPlugin from 'eslint-plugin-unicorn'
+import perfectionist from 'eslint-plugin-perfectionist'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -17,7 +19,7 @@ const compat = new FlatCompat({
 })
 
 export default [
-  // Base JavaScript config
+  // Base JavaScript config (ESLint recommended)
   js.configs.recommended,
 
   // Global settings
@@ -27,16 +29,24 @@ export default [
       sourceType: 'module',
       parser: tsParser,
       parserOptions: {
-        project: './tsconfig.json',
+        project: true, // Auto-detects tsconfig.json
         tsconfigRootDir: __dirname
+      },
+      globals: {
+        React: 'readonly',
+        JSX: 'readonly'
       }
     },
     settings: {
       next: {
         rootDir: __dirname
       },
+      react: {
+        version: 'detect'
+      },
       'import/resolver': {
         typescript: {
+          alwaysTryTypes: true,
           project: './tsconfig.json'
         }
       }
@@ -51,7 +61,9 @@ export default [
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
-      '@next/next/no-html-link-for-pages': 'error'
+      '@next/next/no-html-link-for-pages': ['error', `${__dirname}/src/pages`],
+      '@next/next/no-img-element': 'warn',
+      '@next/next/no-sync-scripts': 'error'
     }
   },
 
@@ -66,9 +78,21 @@ export default [
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': [
         'warn',
-        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
+        { 
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_'
+        }
       ],
-      '@typescript-eslint/consistent-type-imports': 'error'
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        { prefer: 'type-imports' }
+      ],
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/no-misused-promises': [
+        'error',
+        { checksVoidReturn: false }
+      ]
     }
   },
 
@@ -79,7 +103,10 @@ export default [
     },
     rules: {
       'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn'
+      'react-hooks/exhaustive-deps': [
+        'warn',
+        { additionalHooks: '(useIsomorphicLayoutEffect)' }
+      ]
     }
   },
 
@@ -98,25 +125,95 @@ export default [
             'internal',
             'parent',
             'sibling',
-            'index'
+            'index',
+            'object'
           ],
-          'newlines-between': 'always',
-          alphabetize: { order: 'asc', caseInsensitive: true }
+          pathGroups: [
+            {
+              pattern: '{react,react-dom/**,react-router-dom}',
+              group: 'external',
+              position: 'before'
+            },
+            {
+              pattern: '@/**',
+              group: 'internal'
+            }
+          ],
+          'newlines-between': 'always-and-inside-groups',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true
+          },
+          warnOnUnassignedImports: true
         }
       ],
-      'import/no-duplicates': 'error',
+      'import/no-duplicates': ['error', { considerQueryString: true }],
       'import/no-unresolved': 'error',
-      'import/named': 'error'
+      'import/named': 'error',
+      'import/no-cycle': 'warn',
+      'import/no-self-import': 'error'
     }
   },
 
-  // Additional project-specific rules
+  // Unicorn plugin (additional JS goodies)
+  {
+    plugins: {
+      unicorn: unicornPlugin
+    },
+    rules: {
+      'unicorn/filename-case': [
+        'error',
+        {
+          cases: {
+            kebabCase: true,
+            pascalCase: true
+          },
+          ignore: ['^[A-Za-z0-9]+\\.[A-Za-z0-9]+$'] // Allow config files
+        }
+      ],
+      'unicorn/prevent-abbreviations': 'off',
+      'unicorn/no-null': 'off',
+      'unicorn/prefer-node-protocol': 'error'
+    }
+  },
+
+  // Perfectionist (sorting)
+  {
+    plugins: {
+      perfectionist
+    },
+    rules: {
+      'perfectionist/sort-objects': [
+        'warn',
+        {
+          type: 'natural',
+          order: 'asc',
+          'partition-keys': [
+            { key: 'id', order: 'asc' },
+            { key: 'name', order: 'asc' },
+            { group: 'others', order: 'asc' }
+          ]
+        }
+      ]
+    }
+  },
+
+  // Project-specific rules
   {
     rules: {
-      'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+      'no-console': [
+        process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+        { allow: ['warn', 'error', 'info'] }
+      ],
       'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
       'prefer-const': 'error',
-      'arrow-body-style': ['error', 'as-needed']
+      'arrow-body-style': ['error', 'as-needed'],
+      'padding-line-between-statements': [
+        'error',
+        { blankLine: 'always', prev: '*', next: 'return' },
+        { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
+        { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] }
+      ]
     }
   }
 ]
