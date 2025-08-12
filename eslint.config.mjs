@@ -7,7 +7,7 @@ import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
 import reactHooks from 'eslint-plugin-react-hooks'
 import importPlugin from 'eslint-plugin-import'
-import unicornPlugin from 'eslint-plugin-unicorn'
+
 import perfectionist from 'eslint-plugin-perfectionist'
 
 const __filename = fileURLToPath(import.meta.url)
