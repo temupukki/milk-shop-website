@@ -90,7 +90,7 @@ export default async function ProductList() {
                     <EditableField 
                       productId={product.id}
                       field="description"
-                      initialValue={product.description}
+                      initialValue={product.description || ''}
                       type="textarea"
                       updateAction={updateProductField}
                     />
