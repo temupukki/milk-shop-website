@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-export async function PATCH(
-  request: NextRequest,
-  context: { params: { id: string } }
-) {
-  const orderId = context.params.id;
+export async function PATCH(request: NextRequest) {
+  // Extract ID from the URL path
+  const pathParts = request.nextUrl.pathname.split('/');
+  const orderId = pathParts[pathParts.length - 2]; // Gets the [id] part from /api/orders/[id]/deliver
 
   if (!orderId) {
     return NextResponse.json(
