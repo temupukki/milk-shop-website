@@ -8,8 +8,6 @@ import tsPlugin from '@typescript-eslint/eslint-plugin'
 import reactHooks from 'eslint-plugin-react-hooks'
 import importPlugin from 'eslint-plugin-import'
 
-
-
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
@@ -19,7 +17,7 @@ const compat = new FlatCompat({
 })
 
 export default [
-  // Base JavaScript config (ESLint recommended)
+  // Base JavaScript config
   js.configs.recommended,
 
   // Global settings
@@ -29,7 +27,7 @@ export default [
       sourceType: 'module',
       parser: tsParser,
       parserOptions: {
-        project: true, // Auto-detects tsconfig.json
+        project: './tsconfig.json',
         tsconfigRootDir: __dirname
       },
       globals: {
@@ -46,7 +44,6 @@ export default [
       },
       'import/resolver': {
         typescript: {
-          alwaysTryTypes: true,
           project: './tsconfig.json'
         }
       }
@@ -61,9 +58,8 @@ export default [
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
-      '@next/next/no-html-link-for-pages': ['error', `${__dirname}/src/pages`],
-      '@next/next/no-img-element': 'warn',
-      '@next/next/no-sync-scripts': 'error'
+      '@next/next/no-html-link-for-pages': 'error',
+      '@next/next/no-img-element': 'warn'
     }
   },
 
@@ -84,15 +80,8 @@ export default [
           caughtErrorsIgnorePattern: '^_'
         }
       ],
-      '@typescript-eslint/consistent-type-imports': [
-        'error',
-        { prefer: 'type-imports' }
-      ],
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-      '@typescript-eslint/no-misused-promises': [
-        'error',
-        { checksVoidReturn: false }
-      ]
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-floating-promises': 'error'
     }
   },
 
@@ -103,10 +92,7 @@ export default [
     },
     rules: {
       'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': [
-        'warn',
-        { additionalHooks: '(useIsomorphicLayoutEffect)' }
-      ]
+      'react-hooks/exhaustive-deps': 'warn'
     }
   },
 
@@ -125,86 +111,24 @@ export default [
             'internal',
             'parent',
             'sibling',
-            'index',
-            'object'
+            'index'
           ],
-          pathGroups: [
-            {
-              pattern: '{react,react-dom/**,react-router-dom}',
-              group: 'external',
-              position: 'before'
-            },
-            {
-              pattern: '@/**',
-              group: 'internal'
-            }
-          ],
-          'newlines-between': 'always-and-inside-groups',
+          'newlines-between': 'always',
           alphabetize: {
             order: 'asc',
             caseInsensitive: true
-          },
-          warnOnUnassignedImports: true
+          }
         }
       ],
-      'import/no-duplicates': ['error', { considerQueryString: true }],
-      'import/no-unresolved': 'error',
-      'import/named': 'error',
-      'import/no-cycle': 'warn',
-      'import/no-self-import': 'error'
+      'import/no-duplicates': 'error',
+      'import/no-unresolved': 'error'
     }
   },
 
-  // Unicorn plugin (additional JS goodies)
-  {
-    plugins: {
-      unicorn: unicornPlugin
-    },
-    rules: {
-      'unicorn/filename-case': [
-        'error',
-        {
-          cases: {
-            kebabCase: true,
-            pascalCase: true
-          },
-          ignore: ['^[A-Za-z0-9]+\\.[A-Za-z0-9]+$'] // Allow config files
-        }
-      ],
-      'unicorn/prevent-abbreviations': 'off',
-      'unicorn/no-null': 'off',
-      'unicorn/prefer-node-protocol': 'error'
-    }
-  },
-
-  // Perfectionist (sorting)
-  {
-    plugins: {
-      perfectionist
-    },
-    rules: {
-      'perfectionist/sort-objects': [
-        'warn',
-        {
-          type: 'natural',
-          order: 'asc',
-          'partition-keys': [
-            { key: 'id', order: 'asc' },
-            { key: 'name', order: 'asc' },
-            { group: 'others', order: 'asc' }
-          ]
-        }
-      ]
-    }
-  },
-
-  // Project-specific rules
+  // Additional project rules
   {
     rules: {
-      'no-console': [
-        process.env.NODE_ENV === 'production' ? 'error' : 'warn',
-        { allow: ['warn', 'error', 'info'] }
-      ],
+      'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
       'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
       'prefer-const': 'error',
       'arrow-body-style': ['error', 'as-needed'],
