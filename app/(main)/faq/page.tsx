@@ -1,5 +1,5 @@
 "use client";
-import { SetStateAction, useState } from "react";
+import {  useState } from "react";
 import {
   FaChevronDown,
   FaChevronUp,

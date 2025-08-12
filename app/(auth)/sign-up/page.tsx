@@ -44,7 +44,7 @@ export default function Signup() {
 
     try {
       toast.info("Signing you up...", { duration: 4000 })
-      const { data, error } = await authClient.signUp.email(
+      const {  error } = await authClient.signUp.email(
         {
           email: `${phone}@milk.shop`,
           password,

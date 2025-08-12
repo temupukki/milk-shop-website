@@ -40,7 +40,7 @@ export default function Signin() {
     const { phone, password } = values;
 
     try {
-      const { data, error } = await authClient.signIn.email(
+     await authClient.signIn.email(
         {
           email: `${phone}@milk.shop`,
           password,
