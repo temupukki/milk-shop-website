@@ -22,9 +22,9 @@ export default [
 
   // Global settings
   {
+    // ✅ Ignore Prisma generated files so ESLint doesn't break on wasm.js or default.js
     ignores: [
-      'lib/generated/', 
-      
+      'lib/generated/',
     ],
     languageOptions: {
       ecmaVersion: 'latest',
