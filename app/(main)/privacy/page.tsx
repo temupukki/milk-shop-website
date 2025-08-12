@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
               Your Privacy Matters
             </h2>
             <p>
-              At Milk Haven, we're committed to protecting your personal
+              At Milk Haven, we&apos;re committed to protecting your personal
               information. This policy explains how we collect, use, and
               safeguard your data when you visit our website or purchase our
               products.
@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
               </li>
               <li>
                 <strong>Payment Information:</strong> Processed securely through
-                our payment providers (we don't store credit card details)
+                our payment providers (we don&apos;t store credit card details)
               </li>
               <li>
                 <strong>Usage Data:</strong> How you interact with our website
@@ -123,12 +123,12 @@ export default function PrivacyPolicy() {
             </p>
 
             <h3 className="text-xl font-bold text-rose-800 mt-8 mb-4">
-              6. Children's Privacy
+              6. Children&apos;s Privacy
             </h3>
             <p>
               Our services are not directed to children under 13. We do not
               knowingly collect personal information from children. If we become
-              aware of such collection, we'll take steps to delete it.
+              aware of such collection, we&apos;ll take steps to delete it.
             </p>
 
             <h3 className="text-xl font-bold text-rose-800 mt-8 mb-4">
@@ -136,7 +136,7 @@ export default function PrivacyPolicy() {
             </h3>
             <p>
               We may update this policy periodically. The updated version will
-              be posted here with a new "Last Updated" date. Significant changes
+              be posted here with a new &quot;Last Updated&quot; date. Significant changes
               will be communicated via email (if we have your contact
               information).
             </p>

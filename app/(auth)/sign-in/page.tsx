@@ -151,7 +151,7 @@ export default function Signin() {
 
         <CardFooter className="flex flex-col gap-3 text-center text-sm text-rose-600">
           <div>
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link
               href="/sign-up"
               className="text-rose-700 underline ml-1 font-semibold hover:text-rose-900"

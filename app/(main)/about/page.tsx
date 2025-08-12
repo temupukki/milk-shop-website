@@ -43,7 +43,7 @@ export default function AboutUs() {
             <p className="text-gray-700 mb-4">
               Milk Haven began in 1985 when Grandpa Henry bought his first dairy
               cow, Bessie. What started as a small family operation has grown
-              into a beloved local dairy, but we've never lost sight of our
+              into a beloved local dairy, but we&apos;ve never lost sight of our
               roots.
             </p>
             <p className="text-gray-700 mb-6">

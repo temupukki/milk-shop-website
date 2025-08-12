@@ -56,7 +56,7 @@ export default function ContactUs() {
           <h1 className="text-4xl font-bold text-rose-800 mb-4">
             Contact Milk Haven
           </h1>
-          <p className="text-xl text-rose-700">We'd love to hear from you!</p>
+          <p className="text-xl text-rose-700">We&apos;d love to hear from you!</p>
         </div>
       </section>
 
@@ -219,7 +219,7 @@ export default function ContactUs() {
             Have Questions?
           </h2>
           <p className="text-xl text-rose-700 mb-6 max-w-2xl mx-auto">
-            We're here to help! Reach out anytime.
+            We&apos;re here to help! Reach out anytime.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

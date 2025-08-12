@@ -178,7 +178,7 @@ export default function FAQPage() {
             Still have questions?
           </h2>
           <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-            We're happy to help! Contact our friendly team for personalized
+            We&apos;re happy to help! Contact our friendly team for personalized
             assistance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

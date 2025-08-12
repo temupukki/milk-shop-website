@@ -83,7 +83,7 @@ export default function TermsOfService() {
                 for refund policy)
               </li>
               <li>
-                You're responsible for providing accurate delivery information
+                You&apos;re responsible for providing accurate delivery information
               </li>
               <li>Risk of loss transfers to you upon delivery</li>
             </ul>
@@ -102,7 +102,7 @@ export default function TermsOfService() {
             </h3>
             <ul className="list-disc pl-6 space-y-2">
               <li>All website content is owned by Milk Haven</li>
-              <li>"Milk Haven" and our logo are registered trademarks</li>
+              <li>&quot;Milk Haven&quot; and our logo are registered trademarks</li>
               <li>No content may be reproduced without permission</li>
             </ul>
 

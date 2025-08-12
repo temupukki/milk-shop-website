@@ -3,7 +3,7 @@ import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { FaHeart, FaShoppingCart, FaStar, FaLeaf, FaTruck, FaAward } from 'react-icons/fa';
+import {  FaLeaf, FaTruck, FaAward } from 'react-icons/fa';
 
 export default async function Home() {
    const session = await auth.api.getSession({
