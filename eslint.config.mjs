@@ -8,7 +8,7 @@ import tsPlugin from '@typescript-eslint/eslint-plugin'
 import reactHooks from 'eslint-plugin-react-hooks'
 import importPlugin from 'eslint-plugin-import'
 
-import perfectionist from 'eslint-plugin-perfectionist'
+
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
