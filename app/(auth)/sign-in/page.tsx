@@ -123,14 +123,7 @@ export default function Signin() {
               )}
             </div>
 
-            <div className="flex justify-end text-sm">
-              <Link
-                href="/forgot-password"
-                className="text-rose-600 hover:text-rose-800 hover:underline"
-              >
-                Forgot password?
-              </Link>
-            </div>
+          
 
             <Button
               type="submit"
