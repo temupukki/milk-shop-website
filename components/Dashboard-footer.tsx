@@ -9,7 +9,7 @@ export default function DashboardFooter(){
         {/* About Section */}
         <div className="flex items-center"> {/* <-- Center vertically */}
           <h2 className="text-pink-900 text-3xl font-bold mb-0 select-none cursor-default">
-            Milk.
+            MilkPukki.
           </h2>
         </div>
 
@@ -109,7 +109,7 @@ export default function DashboardFooter(){
       </div>
 
       <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} Milk. All rights reserved.
+        &copy; {new Date().getFullYear()} MilkPukki. All rights reserved.
       </div>
     </footer>
   );
