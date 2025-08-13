@@ -2,7 +2,7 @@ import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import Link from "next/link";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -107,7 +107,7 @@ export default async function Dashboard() {
           {/* Mobile Toggle */}
           <label
             htmlFor="mobile-nav-toggle"
-            className="lg:hidden cursor-pointer p-2 rounded hover:bg-gray-800 hover:text-rose-600"
+            className="lg:hidden cursor-pointer p-2 rounded text-black hover:bg-gray-200"
           >
             ☰
           </label>
@@ -131,7 +131,7 @@ export default async function Dashboard() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-2 px-4 rounded-lg text-pink-700 hover:text-rose-600 hover:bg-gray-50"
+                className="block py-2 px-4 rounded-lg text-black hover:text-rose-600 hover:bg-gray-50"
               >
                 {link.label}
               </Link>
@@ -139,15 +139,15 @@ export default async function Dashboard() {
 
             <hr className="border-gray-200" />
 
-            <Link href="/dashboard/profile" className="block">
+            <Link href="/dashboard/profile" className="block text-black">
               Profile
             </Link>
             {user?.role === "ADMIN" && (
-              <Link href="/dashboard/admin" className="block">
+              <Link href="/dashboard/admin" className="block text-black">
                 Admin Page
               </Link>
             )}
-            <Link href="/dashboard/orders" className="block">
+            <Link href="/dashboard/orders" className="block text-black">
               Orders
             </Link>
 
