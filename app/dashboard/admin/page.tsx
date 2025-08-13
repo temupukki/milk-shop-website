@@ -59,8 +59,8 @@ export default async function Admin({
     });
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8 ">
-      <div className=" mx-auto">
+    <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+      <div className="mx-auto max-w-full">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-1">User Management</h1>
@@ -100,51 +100,36 @@ export default async function Admin({
           <table className="w-full min-w-[800px]">
             <thead className="bg-gray-100">
               <tr>
-                {[
-                  "ID",
-                  "Name",
-                  "Email",
-                  "Role",
-                  "Created At",
-                  "Updated At",
-                  "Actions",
-                ].map((title) => (
-                  <th
-                    key={title}
-                    className="p-4 text-left text-gray-700 font-semibold text-sm"
-                  >
-                    {title}
-                  </th>
-                ))}
+                {["ID", "Name", "Email", "Role", "Created At", "Updated At", "Actions"].map(
+                  (title) => (
+                    <th
+                      key={title}
+                      className="p-4 text-left text-gray-700 font-semibold text-sm"
+                    >
+                      {title}
+                    </th>
+                  )
+                )}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
               {users.map((user) => (
-                <tr
-                  key={user.id}
-                  className="hover:bg-gray-50 transition-colors"
-                >
+                <tr key={user.id} className="hover:bg-gray-50 transition-colors">
                   <td className="p-4 text-gray-600">{user.id.slice(0, 8)}</td>
                   <td className="p-4 font-medium text-gray-800">{user.name}</td>
                   <td className="p-4 text-gray-600">{user.email}</td>
                   <td
                     className={`p-4 font-semibold ${
-                      user.role === "ADMIN"
-                        ? "text-green-600"
-                        : "text-blue-600"
+                      user.role === "ADMIN" ? "text-green-600" : "text-blue-600"
                     }`}
                   >
                     {user.role}
                   </td>
                   <td className="p-4 text-gray-600">
-                    {user.createdAt
-                      ? formatDate(new Date(user.createdAt))
-                      : "-"}
+                    {user.createdAt ? formatDate(new Date(user.createdAt)) : "-"}
                   </td>
                   <td className="p-4 text-gray-600">
-                    {user.updatedAt
-                      ? formatDate(new Date(user.updatedAt))
-                      : "-"}
+                    {user.updatedAt ? formatDate(new Date(user.updatedAt)) : "-"}
                   </td>
                   <td className="p-4 text-center">
                     {user.role === "USER" ? (
@@ -161,9 +146,7 @@ export default async function Admin({
 
         {users.length === 0 && (
           <div className="text-center py-12 text-gray-400">
-            {searchTerm
-              ? "No matching users found"
-              : "No users found"}
+            {searchTerm ? "No matching users found" : "No users found"}
           </div>
         )}
 
