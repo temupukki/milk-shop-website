@@ -84,7 +84,7 @@ export default function ContactUs() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 sm:py-3 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm sm:text-base"
+                  className="w-full px-4 py-2 sm:py-3 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm sm:text-base text-black"
                   required
                 />
               </div>
@@ -98,7 +98,7 @@ export default function ContactUs() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 sm:py-3 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm sm:text-base"
+                  className="w-full px-4 py-2 sm:py-3 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm sm:text-base text-black"
                   required
                 />
               </div>
@@ -112,7 +112,7 @@ export default function ContactUs() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-2 sm:py-3 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm sm:text-base"
+                  className="w-full px-4 py-2 sm:py-3 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm sm:text-base text-black"
                   required
                 ></textarea>
               </div>
@@ -148,7 +148,7 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-800 text-sm sm:text-base">Phone</h3>
-                    <p className="text-gray-700 text-sm sm:text-base">+251 9123456789</p>
+                    <p className="text-gray-700 text-sm sm:text-base">+251 9999999999</p>
                     <p className="text-gray-500 text-xs sm:text-sm">
                       Mon-Fri, 2am-11pm LT
                     </p>

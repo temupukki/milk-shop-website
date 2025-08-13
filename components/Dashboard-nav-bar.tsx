@@ -107,7 +107,7 @@ export default async function Dashboard() {
           {/* Mobile Toggle */}
           <label
             htmlFor="mobile-nav-toggle"
-            className="lg:hidden cursor-pointer p-2 rounded hover:bg-gray-100 hover:text-rose-600"
+            className="lg:hidden cursor-pointer p-2 rounded hover:bg-gray-800 hover:text-rose-600"
           >
             ☰
           </label>
@@ -131,7 +131,7 @@ export default async function Dashboard() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-2 px-4 rounded-lg text-gray-700 hover:text-rose-600 hover:bg-gray-50"
+                className="block py-2 px-4 rounded-lg text-pink-700 hover:text-rose-600 hover:bg-gray-50"
               >
                 {link.label}
               </Link>
