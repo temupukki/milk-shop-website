@@ -1,83 +1,91 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import {  FaLeaf, FaTruck, FaAward } from 'react-icons/fa';
+import Image from "next/image";
+import Link from "next/link";
+import { FaLeaf, FaTruck, FaAward } from "react-icons/fa";
 
 export default function Home() {
-  
-
   const benefits = [
     {
-      icon: <FaLeaf className="text-2xl text-green-600" />,
+      icon: <FaLeaf className="text-3xl sm:text-4xl text-green-600" />,
       title: "100% Organic",
-      description: "No artificial hormones or antibiotics"
+      description: "No artificial hormones or antibiotics",
     },
     {
-      icon: <FaTruck className="text-2xl text-rose-600" />,
+      icon: <FaTruck className="text-3xl sm:text-4xl text-rose-600" />,
       title: "Next-Day Delivery",
-      description: "Fresh to your doorstep within 24 hours"
+      description: "Fresh to your doorstep within 24 hours",
     },
     {
-      icon: <FaAward className="text-2xl text-amber-600" />,
+      icon: <FaAward className="text-3xl sm:text-4xl text-amber-600" />,
       title: "Award Winning",
-      description: "Recognized for quality since 2010"
-    }
+      description: "Recognized for quality since 2010",
+    },
   ];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-rose-50 to-white">
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center px-4">
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/homebackground.jpg" 
+          <Image
+            src="/homebackground.jpg"
             alt="Milk splash background"
             fill
             className="object-cover opacity-20"
+            priority
           />
         </div>
-        <div className="container mx-auto px-6 z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-rose-800 mb-6">
+        <div className="z-10 text-center max-w-3xl">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-rose-800 mb-4 sm:mb-6">
             Pure Dairy <span className="text-amber-600">Goodness</span>
           </h1>
-          <p className="text-xl md:text-2xl text-rose-700 max-w-2xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl md:text-2xl text-rose-700 mb-6 sm:mb-8 px-2">
             Farm-fresh milk and dairy products delivered straight to your home
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-rose-600 hover:bg-rose-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
-              <Link href="/dashboard/products">Shop Products</Link>
-            </button>
-            <button className="bg-white hover:bg-rose-50 text-rose-700 font-semibold py-3 px-8 rounded-full shadow-lg border border-rose-200 transition transform hover:scale-105">
-             <Link href="/dashboard/about"> Learn About Us</Link>
-            </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/dashboard/products"
+              className="w-full sm:w-auto bg-rose-600 hover:bg-rose-700 text-white font-semibold py-3 px-6 sm:px-8 rounded-full shadow-lg transition transform hover:scale-105 text-center"
+            >
+              Shop Products
+            </Link>
+            <Link
+              href="/dashboard/about"
+              className="w-full sm:w-auto bg-white hover:bg-rose-50 text-rose-700 font-semibold py-3 px-6 sm:px-8 rounded-full shadow-lg border border-rose-200 transition transform hover:scale-105 text-center"
+            >
+              Learn About Us
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="bg-rose-50 p-8 rounded-xl text-center">
-                <div className="flex justify-center mb-4">
-                  {benefit.icon}
-                </div>
-                <h3 className="text-xl font-bold text-rose-800 mb-2">{benefit.title}</h3>
-                <p className="text-rose-700">{benefit.description}</p>
+              <div
+                key={index}
+                className="bg-rose-50 p-6 sm:p-8 rounded-xl text-center shadow-sm"
+              >
+                <div className="flex justify-center mb-4">{benefit.icon}</div>
+                <h3 className="text-lg sm:text-xl font-bold text-rose-800 mb-2">
+                  {benefit.title}
+                </h3>
+                <p className="text-rose-700 text-sm sm:text-base">
+                  {benefit.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-    
-
       {/* Story Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/2">
-              <div className="relative h-96 rounded-xl overflow-hidden shadow-lg">
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div className="w-full md:w-1/2">
+              <div className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-lg">
                 <Image
                   src="/homestory.jpg"
                   alt="Our dairy farm"
@@ -86,22 +94,24 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="md:w-1/2">
-              <h2 className="text-3xl font-bold text-rose-800 mb-6">Our Dairy Story</h2>
-              <p className="text-gray-700 mb-4">
-                Milk Haven began as a small family farm in 1985 with just 10 cows. Today, we maintain those same values of quality and care while serving thousands of happy customers.
+            <div className="w-full md:w-1/2 text-center md:text-left">
+              <h2 className="text-2xl sm:text-3xl font-bold text-rose-800 mb-4 sm:mb-6">
+                Our Dairy Story
+              </h2>
+              <p className="text-gray-700 mb-4 text-sm sm:text-base">
+                Milk Haven began as a small family farm in 1985 with just 10
+                cows. Today, we maintain those same values of quality and care
+                while serving thousands of happy customers.
               </p>
-              <p className="text-gray-700 mb-6">
-                We believe in sustainable farming practices that respect both the animals and the land. Our cows are pasture-raised and treated with the utmost care.
+              <p className="text-gray-700 mb-6 text-sm sm:text-base">
+                We believe in sustainable farming practices that respect both
+                the animals and the land. Our cows are pasture-raised and
+                treated with the utmost care.
               </p>
-              
             </div>
           </div>
         </div>
       </section>
-      
-
-      
     </main>
   );
 }
