@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Card,
   CardHeader,
@@ -6,24 +6,24 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import Link from "next/link"
-import { Loader2 } from "lucide-react"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { formSchema } from "@/lib/auth-schema"
-import { authClient } from "@/lib/auth-client"
-import { toast } from "sonner"
-import { useState } from "react"
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import Link from "next/link";
+import { Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { formSchema } from "@/lib/auth-schema";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
+import { useState } from "react";
 
-type SignupFormData = z.infer<typeof formSchema>
+type SignupFormData = z.infer<typeof formSchema>;
 
 export default function Signup() {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -37,13 +37,13 @@ export default function Signup() {
       address: "",
       password: "",
     },
-  })
+  });
 
   async function onSubmit(values: SignupFormData) {
-    const { firstName, lastName, phone, address, password } = values
+    const { firstName, lastName, phone, address, password } = values;
 
     try {
-      toast.info("Creating your account...", { duration: 4000 })
+      toast.info("Creating your account...", { duration: 4000 });
       const { error } = await authClient.signUp.email(
         {
           email: `${phone}@milk.shop`,
@@ -53,22 +53,26 @@ export default function Signup() {
           callbackURL: "/dashboard",
         },
         {
-          onRequest: () => toast.loading("Processing your request..."),
+          onRequest: () => {
+            toast.loading("Processing your request...");
+          },
           onSuccess: () => {
-            toast.success("Account created successfully!")
-            window.location.href = "/sign-in"
+            toast.success("Account created successfully!");
+            window.location.href = "/sign-in";
           },
           onError: (ctx) => {
-            toast.error(ctx.error.message || "Signup failed, please try again.")
+            toast.error(
+              ctx.error.message || "Signup failed, please try again."
+            );
           },
         }
-      )
+      );
       if (error) {
-        toast.error(error.message || "Signup failed, please try again.")
+        toast.error(error.message || "Signup failed, please try again.");
       }
     } catch (err) {
-      toast.error("An unexpected error occurred")
-      console.error("Sign-up error →", err)
+      toast.error("An unexpected error occurred");
+      console.error("Sign-up error →", err);
     }
   }
 
@@ -99,7 +103,9 @@ export default function Signup() {
                   className="border-rose-200 focus-visible:ring-rose-400 text-rose-700 placeholder:text-rose-400 "
                 />
                 {errors.firstName && (
-                  <p className="text-xs text-rose-600">{errors.firstName.message}</p>
+                  <p className="text-xs text-rose-600">
+                    {errors.firstName.message}
+                  </p>
                 )}
               </div>
 
@@ -114,7 +120,9 @@ export default function Signup() {
                   className="border-rose-200 focus-visible:ring-rose-400  text-rose-700 placeholder:text-rose-400"
                 />
                 {errors.lastName && (
-                  <p className="text-xs text-rose-600">{errors.lastName.message}</p>
+                  <p className="text-xs text-rose-600">
+                    {errors.lastName.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -151,7 +159,9 @@ export default function Signup() {
                 className="border-rose-200 focus-visible:ring-rose-400  text-rose-700 placeholder:text-rose-400"
               />
               {errors.address && (
-                <p className="text-xs text-rose-600">{errors.address.message}</p>
+                <p className="text-xs text-rose-600">
+                  {errors.address.message}
+                </p>
               )}
             </div>
 
@@ -176,7 +186,9 @@ export default function Signup() {
                 className="border-rose-200 focus-visible:ring-rose-400  text-rose-700 placeholder:text-rose-400"
               />
               {errors.password && (
-                <p className="text-xs text-rose-600">{errors.password.message}</p>
+                <p className="text-xs text-rose-600">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 
@@ -200,7 +212,10 @@ export default function Signup() {
         <CardFooter className="flex flex-col gap-3 pt-4 text-center text-sm text-rose-600">
           <div>
             Already have an account?{" "}
-            <Link href="/sign-in" className="text-rose-700 font-medium hover:underline">
+            <Link
+              href="/sign-in"
+              className="text-rose-700 font-medium hover:underline"
+            >
               Sign in
             </Link>
           </div>
@@ -210,5 +225,5 @@ export default function Signup() {
         </CardFooter>
       </Card>
     </div>
-  )
+  );
 }
