@@ -13,7 +13,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <h1 className="font-bold text-pink-900 text-2xl md:text-3xl tracking-wide">
-              Milk Pukki
+              Milk Pukkijjj
             </h1>
           </div>
 
