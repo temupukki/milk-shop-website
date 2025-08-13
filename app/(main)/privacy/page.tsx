@@ -3,7 +3,7 @@ import Head from "next/head";
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-rose-50">
-      <title>Privacy Policy | Milk Haven</title>
+      <title>Privacy Policy | Milk pukki</title>
 
       <section className="relative h-64 flex items-center justify-center bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="text-center z-10 px-4">
@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
               Your Privacy Matters
             </h2>
             <p>
-              At Milk Haven, we&apos;re committed to protecting your personal
+              At Milk pukki, we&apos;re committed to protecting your personal
               information. This policy explains how we collect, use, and
               safeguard your data when you visit our website or purchase our
               products.
@@ -108,10 +108,10 @@ export default function PrivacyPolicy() {
             <p className="mt-4">
               Contact us at{" "}
               <a
-                href="mailto:privacy@milkhaven.com"
+                href="mailto:privacy@milkpukki.com"
                 className="text-rose-600 hover:underline"
               >
-                privacy@milkhaven.com
+                privacy@milkpukki.com
               </a>{" "}
               to exercise these rights.
             </p>
@@ -143,16 +143,16 @@ export default function PrivacyPolicy() {
               <br />
               <strong>Email:</strong>{" "}
               <a
-                href="mailto:privacy@milkhaven.com"
+                href="mailto:privacy@milkpukki.com"
                 className="text-rose-600 hover:underline"
               >
-                privacy@milkhaven.com
+                privacy@milkpukki.com
               </a>
               <br />
-              <strong>Mail:</strong> Milk Haven Privacy Officer, 123 Dairy Lane,
-              Farmville, CA 90210
+              <strong>Mail:</strong> Milk pukki Privacy Officer, Akaki kality
+        
               <br />
-              <strong>Phone:</strong> (555) 123-4567 (Mon-Fri, 9am-5pm PST)
+              <strong>Phone:</strong> +251 1234567 (Mon-Fri, 9am-5pm PST)
             </p>
           </div>
         </div>

@@ -10,7 +10,7 @@ export default function Footer() {
         {/* About Section */}
         <div className="flex items-center"> {/* <-- Center vertically */}
           <h2 className="text-pink-900 text-3xl font-bold mb-0 select-none cursor-default">
-            Milk.
+            MilkPukki.
           </h2>
         </div>
 

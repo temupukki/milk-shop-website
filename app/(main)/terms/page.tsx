@@ -3,7 +3,7 @@ import Head from "next/head";
 export default function TermsOfService() {
   return (
     <div className="min-h-screen bg-rose-50">
-      <title>Terms of Service | Milk Haven</title>
+      <title>Terms of Service | Milk pukki</title>
       <section className="relative h-64 flex items-center justify-center bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="text-center z-10 px-4">
           <h1 className="text-4xl font-bold text-rose-800 mb-4">
@@ -19,7 +19,7 @@ export default function TermsOfService() {
         <div className="bg-white rounded-xl shadow-md p-8 md:p-12">
           <div className="prose prose-lg max-w-none text-gray-700">
             <h2 className="text-2xl font-bold text-rose-800 mb-6">
-              Welcome to Milk Haven
+              Welcome to Milk pukki
             </h2>
             <p>
               By accessing our website or purchasing our products, you agree to
@@ -95,9 +95,9 @@ export default function TermsOfService() {
               6. Intellectual Property
             </h3>
             <ul className="list-disc pl-6 space-y-2">
-              <li>All website content is owned by Milk Haven</li>
+              <li>All website content is owned by Milk pukki</li>
               <li>
-                &quot;Milk Haven&quot; and our logo are registered trademarks
+                &quot;Milk pukki&quot; and our logo are registered trademarks
               </li>
               <li>No content may be reproduced without permission</li>
             </ul>
@@ -105,7 +105,7 @@ export default function TermsOfService() {
             <h3 className="text-xl font-bold text-rose-800 mt-8 mb-4">
               7. Limitation of Liability
             </h3>
-            <p>Milk Haven shall not be liable for:</p>
+            <p>Milk pukki shall not be liable for:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Any incidental or consequential damages</li>
               <li>
@@ -139,14 +139,14 @@ export default function TermsOfService() {
               <br />
               <strong>Email:</strong>{" "}
               <a
-                href="mailto:legal@milkhaven.com"
+                href="mailto:legal@milkpukki.com"
                 className="text-rose-600 hover:underline"
               >
-                legal@milkhaven.com
+                legal@milkpukki.com
               </a>
               <br />
-              <strong>Mail:</strong> Milk Haven Legal Department, 123 Dairy
-              Lane, Farmville, CA 90210
+              <strong>Mail:</strong> Milk pukki Legal Department, Akaki kality
+             
             </p>
           </div>
         </div>

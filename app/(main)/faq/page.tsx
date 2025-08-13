@@ -1,5 +1,5 @@
 "use client";
-import {  useState } from "react";
+import { useState } from "react";
 import {
   FaChevronDown,
   FaChevronUp,
@@ -23,7 +23,7 @@ export default function FAQPage() {
         {
           question: "How do I place an order?",
           answer:
-            "You can order directly through our website, by phone at (555) 123-4567, or in person at our farm store. Online orders require an account for tracking purposes.",
+            "You can order directly through our website, by phone at +25199999999, or in person at our stores. Online orders require an account for tracking purposes.",
         },
         {
           question: "What's your return policy?",
@@ -44,7 +44,7 @@ export default function FAQPage() {
         {
           question: "What areas do you deliver to?",
           answer:
-            "We currently deliver within 50 miles of Farmville, CA. Enter your zip code at checkout to confirm availability. We're expanding regularly!",
+            "We currently deliver in Addis Ababa only , We're expanding regularly!",
         },
         {
           question: "How are products kept cold during delivery?",
@@ -79,30 +79,12 @@ export default function FAQPage() {
         },
       ],
     },
-    {
-      questions: [
-        {
-          question: "Why does your milk taste different?",
-          answer:
-            "Our milk is non-homogenized, meaning the cream rises naturally. It's also vat-pasteurized at lower temps to preserve flavor and nutrients.",
-        },
-        {
-          question: "How long does your milk last?",
-          answer:
-            "Unopened, our milk stays fresh 7-10 days past bottling. Once opened, consume within 5 days for best quality. The sell-by date is printed on each bottle.",
-        },
-        {
-          question: "Do you offer lactose-free options?",
-          answer:
-            "Yes! Our lactose-free milk uses natural enzymes to break down lactose without altering the creamy taste. We also carry kefir and aged cheeses which are naturally low in lactose.",
-        },
-      ],
-    },
+    
   ];
 
   return (
     <div className="min-h-screen bg-rose-50">
-       <title>FAQ | Milk Pukki</title>
+      <title>FAQ | Milk Pukki</title>
       <section className="relative h-64 flex items-center justify-center bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="text-center z-10 px-4">
           <h1 className="text-4xl font-bold text-rose-800 mb-4">
@@ -114,18 +96,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* FAQ Content */}
       <section className="container mx-auto px-4 py-16 max-w-4xl">
-        {/* Search Bar */}
-        <div className="mb-12">
-          <input
-            type="text"
-            placeholder="Search questions..."
-            className="w-full px-6 py-4 rounded-xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 shadow-sm"
-          />
-        </div>
-
-        {/* FAQ Categories */}
         <div className="space-y-12">
           {faqCategories.map((category, catIndex) => (
             <div
@@ -143,7 +114,7 @@ export default function FAQPage() {
               {/* Questions */}
               <div className="divide-y divide-rose-100">
                 {category.questions.map((item, index) => {
-                  const questionIndex = catIndex * 10 + index; // Create unique index
+                  const questionIndex = catIndex * 10 + index;
                   return (
                     <div key={index} className="p-6">
                       <button
@@ -172,7 +143,6 @@ export default function FAQPage() {
           ))}
         </div>
 
-        {/* Still Have Questions? */}
         <div className="mt-16 text-center">
           <h2 className="text-2xl font-bold text-rose-800 mb-4">
             Still have questions?
@@ -188,12 +158,7 @@ export default function FAQPage() {
             >
               Contact Us
             </a>
-            <a
-              href="tel:5551234567"
-              className="bg-white hover:bg-rose-50 text-rose-700 font-semibold py-3 px-8 rounded-full shadow-lg border border-rose-200 transition"
-            >
-              Call Now
-            </a>
+           
           </div>
         </div>
       </section>

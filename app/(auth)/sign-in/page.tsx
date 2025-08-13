@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Card,
   CardHeader,
@@ -13,17 +12,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
-
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signinSchema } from "@/lib/auth-schema";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
+import { useState } from "react";
 
 type SigninFormData = z.infer<typeof signinSchema>;
 
 export default function Signin() {
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -40,7 +40,7 @@ export default function Signin() {
     const { phone, password } = values;
 
     try {
-     await authClient.signIn.email(
+      await authClient.signIn.email(
         {
           email: `${phone}@milk.shop`,
           password,
@@ -74,66 +74,79 @@ export default function Signin() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50 via-rose-100 to-rose-200 px-6">
-      <title> Sign In | Milk Pukki</title>
-      <Card className="w-full max-w-md p-8 bg-white rounded-2xl shadow-xl border border-rose-200">
-        <CardHeader className="text-center space-y-2 mb-6">
-          <CardTitle className="text-4xl font-extrabold text-rose-700">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50 via-rose-100 to-rose-200 p-4 sm:p-6">
+      <title>Sign In | Milk Pukki</title>
+      <Card className="w-full max-w-md p-6 sm:p-8 bg-white rounded-2xl shadow-lg border border-rose-200">
+        <CardHeader className="text-center space-y-2 mb-4 sm:mb-6">
+          <CardTitle className="text-3xl sm:text-4xl font-extrabold text-rose-700">
             Welcome Back
           </CardTitle>
-          <CardDescription className="text-rose-500 text-lg">
+          <CardDescription className="text-rose-500 text-base sm:text-lg">
             Sign in to your Milk Shop account
           </CardDescription>
         </CardHeader>
 
         <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <div className="flex flex-col space-y-1">
-              <Label htmlFor="phone" className="font-semibold text-rose-700">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+            {/* Phone Input */}
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="font-semibold text-rose-700 text-sm sm:text-base">
                 Phone Number
               </Label>
               <div className="flex">
-                <span className="px-4 py-2 bg-rose-100 text-rose-700 text-sm rounded-l-md border border-r-0 border-rose-300 select-none flex items-center">
+                <span className="px-3 py-2 bg-rose-100 text-rose-700 text-sm rounded-l-md border border-r-0 border-rose-300 select-none flex items-center">
                   +251
                 </span>
                 <Input
                   id="phone"
                   {...register("phone")}
                   placeholder="912345678"
-                  className="rounded-l-none placeholder-rose-400 text-rose-700 focus:ring-2 focus:ring-rose-400 focus:scale-105 focus:shadow-lg transition-transform duration-300"
+                  className="rounded-l-none placeholder-rose-300 text-rose-700 focus:ring-2 focus:ring-rose-400"
+                  inputMode="numeric"
                 />
               </div>
               {errors.phone && (
-                <p className="text-sm text-rose-600">{errors.phone.message}</p>
+                <p className="text-xs sm:text-sm text-rose-600 mt-1">{errors.phone.message}</p>
               )}
             </div>
 
-            <div className="flex flex-col space-y-1">
-              <Label htmlFor="password" className="font-semibold text-rose-700">
-                Password
-              </Label>
+            {/* Password Input */}
+            <div className="space-y-2">
+              <div className="flex justify-between items-center">
+                <Label htmlFor="password" className="font-semibold text-rose-700 text-sm sm:text-base">
+                  Password
+                </Label>
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="text-xs sm:text-sm text-rose-600 hover:text-rose-800"
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
               <Input
                 id="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 {...register("password")}
-                placeholder="Input password here..."
-                className="placeholder-rose-400 text-rose-700 focus:ring-2 focus:ring-rose-400 focus:scale-105 focus:shadow-lg transition-transform duration-300"
+                placeholder="Enter your password"
+                className="placeholder-rose-300 text-rose-700 focus:ring-2 focus:ring-rose-400"
               />
               {errors.password && (
-                <p className="text-sm text-rose-600">{errors.password.message}</p>
+                <p className="text-xs sm:text-sm text-rose-600 mt-1">{errors.password.message}</p>
               )}
             </div>
 
-          
+           
 
+            {/* Submit Button */}
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3 bg-rose-600 hover:bg-rose-700 hover:scale-105 transition-transform duration-300 font-bold text-white rounded-lg shadow-md flex justify-center items-center gap-2"
+              className="w-full py-3 bg-rose-600 hover:bg-rose-700 font-semibold text-white rounded-lg shadow-sm active:scale-[0.98] transition-transform"
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className="animate-spin h-5 w-5" />
+                  <Loader2 className="animate-spin h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                   Signing in...
                 </>
               ) : (
@@ -143,19 +156,19 @@ export default function Signin() {
           </form>
         </CardContent>
 
-        <CardFooter className="flex flex-col gap-3 text-center text-sm text-rose-600">
+        <CardFooter className="flex flex-col gap-3 text-center text-xs sm:text-sm text-rose-600">
           <div>
-            Don&apos;t have an account?{" "}
+            Don't have an account?{" "}
             <Link
               href="/sign-up"
-              className="text-rose-700 underline ml-1 font-semibold hover:text-rose-900"
+              className="text-rose-700 underline font-semibold hover:text-rose-900"
             >
               Create one
             </Link>
           </div>
           <Link
             href="/"
-            className="text-rose-500 underline hover:text-rose-700"
+            className="text-rose-500 underline hover:text-rose-700 flex items-center justify-center"
           >
             ← Return to homepage
           </Link>
