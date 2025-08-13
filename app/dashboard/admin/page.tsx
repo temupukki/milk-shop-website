@@ -59,18 +59,37 @@ export default async function Admin({
     });
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
-      <div className="mx-auto max-w-full">
+    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+      <div className="mx-auto max-w-7xl space-y-8">
+        {/* Top Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link href="/dashboard/admin/list">
+            <Button className="bg-gray-800 hover:bg-gray-900 text-white w-full sm:w-auto">
+              Manage Products
+            </Button>
+          </Link>
+          <Link href="/dashboard/admin/order">
+            <Button className="bg-gray-800 hover:bg-gray-900 text-white w-full sm:w-auto">
+              Manage Orders
+            </Button>
+          </Link>
+          <Link href="/dashboard/admin/contact">
+            <Button className="bg-gray-800 hover:bg-gray-900 text-white w-full sm:w-auto">
+              See Messages
+            </Button>
+          </Link>
+        </div>
+
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-1">User Management</h1>
-          <p className="text-gray-500">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-800">User Management</h1>
+          <p className="text-gray-500 mt-1">
             Admin dashboard for managing user accounts
           </p>
         </div>
 
         {/* Search */}
-        <div className="mb-6">
+        <div>
           <form className="flex flex-col sm:flex-row gap-2 bg-white p-4 rounded-xl shadow-sm border border-gray-200">
             <Input
               type="text"
@@ -87,7 +106,10 @@ export default async function Admin({
             </Button>
             {searchTerm && (
               <Link href="/dashboard/admin">
-                <Button variant="outline" className="text-gray-800 font-bold">
+                <Button
+                  variant="outline"
+                  className="text-gray-800 border-gray-300 hover:bg-gray-100 font-bold"
+                >
                   Clear
                 </Button>
               </Link>
@@ -144,30 +166,12 @@ export default async function Admin({
           </table>
         </div>
 
+        {/* Empty State */}
         {users.length === 0 && (
-          <div className="text-center py-12 text-gray-400">
+          <div className="text-center py-12 text-gray-400 text-lg">
             {searchTerm ? "No matching users found" : "No users found"}
           </div>
         )}
-
-        {/* Admin Action Buttons */}
-        <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <Link href="/dashboard/admin/list">
-            <Button className="bg-gray-800 text-white w-full sm:w-auto">
-              Manage Products
-            </Button>
-          </Link>
-          <Link href="/dashboard/admin/order">
-            <Button className="bg-gray-800 text-white w-full sm:w-auto">
-              Manage Orders
-            </Button>
-          </Link>
-          <Link href="/dashboard/admin/contact">
-            <Button className="bg-gray-800 text-white w-full sm:w-auto">
-              See Messages
-            </Button>
-          </Link>
-        </div>
       </div>
     </div>
   );

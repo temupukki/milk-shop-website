@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { SignOutButton } from "./sign-out";
 
 function getInitials(name: string) {
   return name
@@ -62,6 +63,7 @@ export default async function Dashboard() {
                   <span className="w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center font-semibold">
                     {initials}
                   </span>
+                  <span>{user?.name}</span>
                 </DropdownMenuTrigger>
 
                 <DropdownMenuContent className="min-w-[160px] bg-white rounded-md shadow-lg border border-rose-100 p-1 text-black">
@@ -84,23 +86,12 @@ export default async function Dashboard() {
                       Orders
                     </Link>
                   </DropdownMenuItem>
+
+                  <DropdownMenuItem>
+                    <SignOutButton />
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-            </li>
-
-            {/* Sign out */}
-            <li>
-              <form
-                action={async () => {
-                  "use server";
-                  await auth.api.signOut({ headers: await headers() });
-                  redirect("/sign-in");
-                }}
-              >
-                <Button className="bg-black text-white font-bold rounded px-4 py-2 hover:text-green-400">
-                  Sign out
-                </Button>
-              </form>
             </li>
           </ul>
 
@@ -125,43 +116,58 @@ export default async function Dashboard() {
               <span className="w-12 h-12 rounded-full bg-rose-500 text-white flex items-center justify-center font-semibold text-lg">
                 {initials}
               </span>
+              <span className="ml-3 font-medium">{user?.name}</span>
             </div>
 
             {links.map((link) => (
-              <Link
+              <label
                 key={link.href}
-                href={link.href}
-                className="block py-2 px-4 rounded-lg text-black hover:text-rose-600 hover:bg-gray-50"
+                htmlFor="mobile-nav-toggle"
+                className="block"
               >
-                {link.label}
-              </Link>
+                <Link
+                  href={link.href}
+                  className="block py-2 px-4 rounded-lg text-black hover:text-rose-600 hover:bg-gray-50"
+                >
+                  {link.label}
+                </Link>
+              </label>
             ))}
 
             <hr className="border-gray-200" />
 
-            <Link href="/dashboard/profile" className="block text-black">
-              Profile
-            </Link>
-            {user?.role === "ADMIN" && (
-              <Link href="/dashboard/admin" className="block text-black">
-                Admin Page
+            <label htmlFor="mobile-nav-toggle" className="block">
+              <Link
+                href="/dashboard/profile"
+                className="block py-2 px-4 rounded-lg text-black hover:text-rose-600 hover:bg-gray-50"
+              >
+                Profile
               </Link>
-            )}
-            <Link href="/dashboard/orders" className="block text-black">
-              Orders
-            </Link>
+            </label>
 
-            <form
-              action={async () => {
-                "use server";
-                await auth.api.signOut({ headers: await headers() });
-                redirect("/sign-in");
-              }}
-            >
-              <Button className="w-full bg-gradient-to-r from-rose-600 to-pink-600 text-white font-semibold rounded-lg py-3 hover:shadow-md">
-                Sign out
-              </Button>
-            </form>
+            {user?.role === "ADMIN" && (
+              <label htmlFor="mobile-nav-toggle" className="block">
+                <Link
+                  href="/dashboard/admin"
+                  className="block py-2 px-4 rounded-lg text-black hover:text-rose-600 hover:bg-gray-50"
+                >
+                  Admin Page
+                </Link>
+              </label>
+            )}
+
+            <label htmlFor="mobile-nav-toggle" className="block">
+              <Link
+                href="/dashboard/orders"
+                className="block py-2 px-4 rounded-lg text-black hover:text-rose-600 hover:bg-gray-50"
+              >
+                Orders
+              </Link>
+            </label>
+
+            <label htmlFor="mobile-nav-toggle" className="block">
+              <SignOutButton  />
+            </label>
           </div>
         </div>
       </nav>
