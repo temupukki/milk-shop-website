@@ -1,7 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { format, differenceInMilliseconds, addMinutes, addHours } from "date-fns";
+import {
+  format,
+  differenceInMilliseconds,
+  addMinutes,
+  addHours,
+} from "date-fns";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { toast } from "sonner";
 import InvoicePdfGenerator from "@/components/OrderDetailsButton";
@@ -79,7 +84,6 @@ export default function OrdersPage() {
           const now = new Date();
 
           if (now > expirationTime) {
-       
             return;
           }
 
@@ -99,7 +103,6 @@ export default function OrdersPage() {
   }, []);
 
   useEffect(() => {
-   
     const interval = setInterval(() => {
       const now = new Date();
       const updatedCountdowns: Record<string, string> = {};
@@ -109,7 +112,7 @@ export default function OrdersPage() {
         const order = orders.find((o) => o.id === orderId);
         if (order && order.status === "PENDING") {
           const createdAt = new Date(order.createdAt);
-          const expirationTime = addMinutes(createdAt,1440);
+          const expirationTime = addMinutes(createdAt, 1440);
           const timeLeft = differenceInMilliseconds(expirationTime, now);
 
           if (timeLeft <= 0) {
@@ -175,9 +178,7 @@ export default function OrdersPage() {
 
   const formatCountdown = (milliseconds: number): string => {
     const hours = Math.floor(milliseconds / (1000 * 60 * 60));
-    const minutes = Math.floor(
-      (milliseconds % (1000 * 60 * 60)) / (1000 * 60)
-    );
+    const minutes = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((milliseconds % (1000 * 60)) / 1000);
 
     return `${hours}h ${minutes}m ${seconds}s`;
@@ -259,6 +260,8 @@ export default function OrdersPage() {
 
   return (
     <div className="min-h-screen bg-rose-50 pb-20">
+      <title>Orders | Pukki milk</title>
+
       <main className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-rose-800 text-center mb-2">
           Order History

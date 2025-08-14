@@ -23,7 +23,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-rose-50 to-white">
-      {/* Hero Section */}
+          <title>Pukki Milk</title>
+      
       <section className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center px-4">
         <div className="absolute inset-0 z-0">
           <Image
@@ -99,7 +100,7 @@ export default function Home() {
                 Our Dairy Story
               </h2>
               <p className="text-gray-700 mb-4 text-sm sm:text-base">
-                Milk Haven began as a small family farm in 1985 with just 10
+                Pukki Milk began as a small family farm in 2025 with just 10
                 cows. Today, we maintain those same values of quality and care
                 while serving thousands of happy customers.
               </p>

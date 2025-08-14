@@ -23,7 +23,7 @@ export default async function ProfilePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      {/* Profile Header */}
+        <title>Profile | Pukki milk</title>
       <div className="bg-gradient-to-r from-pink-400 to-rose-300 h-48 w-full relative">
         {/* Admin Badge - Mobile */}
         {user.role === "ADMIN" && (
@@ -120,6 +120,18 @@ export default async function ProfilePage() {
 
           {/* Actions Sidebar */}
           <div className="space-y-4">
+            
+            <form
+                  action={async () => {
+                    "use server";
+                    await auth.api.signOut({ headers: await headers() });
+                    redirect("/sign-in");
+                  }}
+                >
+                  <Button className= "w-full gap-2 h-14 text-lg  bg-gray-800 hover:bg-black ">
+                    Sign out
+                  </Button>
+                </form>
             {user.role === "ADMIN" && (
               <Link href="/dashboard/admin">
                 <Button variant="outline" className="w-full gap-2 h-14 text-lg  bg-gray-700 hover:bg-gray-800">
@@ -129,7 +141,6 @@ export default async function ProfilePage() {
               </Link>
             )}
 
-          
 
          
           </div>

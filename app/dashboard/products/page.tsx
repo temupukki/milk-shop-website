@@ -211,6 +211,8 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-rose-50 pb-20">
+      <title>Products | Pukki milk</title>
+
       <main className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-rose-800 text-center mb-2">
           Milk Haven

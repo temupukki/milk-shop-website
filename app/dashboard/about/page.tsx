@@ -5,14 +5,14 @@ import { FaLeaf, FaHeart, FaAward, FaTruck } from "react-icons/fa";
 export default function AboutUs() {
   return (
     <div className="min-h-screen bg-rose-50">
-      <title>About | Milk Pukki</title>
+      <title>About | Pukki Milk</title>
       
       {/* Hero Section - Mobile Optimized */}
       <section className="relative h-64 sm:h-80 md:h-96 flex items-center justify-center bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src="/homebackground.jpg"
-            alt="Milk Pukki Farm Landscape"
+            alt="Pukki Milk Farm Landscape"
             fill
             className="object-cover opacity-20"
             priority
@@ -35,7 +35,7 @@ export default function AboutUs() {
             <div className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/homestory.jpg"
-                alt="Milk Pukki Family Farmers"
+                alt="Pukki Milk Family Farmers"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -47,14 +47,14 @@ export default function AboutUs() {
               From Our Family to Yours
             </h2>
             <p className="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base">
-              Milk Pukki began in 1985 when Grandpa Henry bought his first dairy
+              Pukki Milk began in 1985 when Grandpa Henry bought his first dairy
               cow, Bessie. What started as a small family operation has grown
               into a beloved local dairy, but we&apos;ve never lost sight of our
               roots.
             </p>
             <p className="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
               Today, we still milk our cows by hand twice daily, refusing to
-              compromise on quality for scale. Every bottle of Milk Pukki
+              compromise on quality for scale. Every bottle of Pukki Milk
               carries three generations of care and tradition.
             </p>
             <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -121,10 +121,10 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Team Section */}
+
       <section className="py-10 sm:py-16 container mx-auto px-4 sm:px-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-rose-800 mb-8 sm:mb-12 text-center">
-          Meet the Milk Pukki Family
+          Meet the Pukki Milk Family
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {[
@@ -178,11 +178,11 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* CTA Section */}
+  
       <section className="py-12 sm:py-16 bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="container mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-rose-800 mb-4 sm:mb-6">
-            Taste the Milk Pukki Difference
+            Taste the Pukki Milk Difference
           </h2>
           <p className="text-lg sm:text-xl text-rose-700 mb-6 sm:mb-8 max-w-2xl mx-auto">
             Visit our farm store or order fresh delivery to your doorstep

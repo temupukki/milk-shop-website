@@ -60,6 +60,7 @@ export default async function Admin({
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+       <title>Admin | Pukki milk</title>
       <div className="mx-auto max-w-7xl space-y-8">
         {/* Top Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">

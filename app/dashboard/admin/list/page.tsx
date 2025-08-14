@@ -25,6 +25,8 @@ export default async function ProductList() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-rose-50 to-white py-12 px-4 sm:px-6 lg:px-8">
+      <title>Product Management| Pukki milk</title>
+
       <div className="max-w-6xl mx-auto">
         <div className="mb-8 flex justify-between items-center flex-wrap gap-4">
           <div>
@@ -50,19 +52,38 @@ export default async function ProductList() {
             <table className="w-full min-w-[900px]">
               <thead className="bg-rose-50">
                 <tr>
-                  <th className="p-4 text-left text-rose-800 font-semibold">ID</th>
-                  <th className="p-4 text-left text-rose-800 font-semibold">Name</th>
-                  <th className="p-4 text-left text-rose-800 font-semibold">Price</th>
-                  <th className="p-4 text-left text-rose-800 font-semibold">Category</th>
-                  <th className="p-4 text-left text-rose-800 font-semibold">Description</th>
-                  <th className="p-4 text-left text-rose-800 font-semibold">Stock</th>
-                  <th className="p-4 text-left text-rose-800 font-semibold">Image</th>
-                  <th className="p-4 text-left text-rose-800 font-semibold">Actions</th>
+                  <th className="p-4 text-left text-rose-800 font-semibold">
+                    ID
+                  </th>
+                  <th className="p-4 text-left text-rose-800 font-semibold">
+                    Name
+                  </th>
+                  <th className="p-4 text-left text-rose-800 font-semibold">
+                    Price
+                  </th>
+                  <th className="p-4 text-left text-rose-800 font-semibold">
+                    Category
+                  </th>
+                  <th className="p-4 text-left text-rose-800 font-semibold">
+                    Description
+                  </th>
+                  <th className="p-4 text-left text-rose-800 font-semibold">
+                    Stock
+                  </th>
+                  <th className="p-4 text-left text-rose-800 font-semibold">
+                    Image
+                  </th>
+                  <th className="p-4 text-left text-rose-800 font-semibold">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-rose-100">
                 {products.map((product) => (
-                  <tr key={product.id} className="hover:bg-rose-50 transition-colors">
+                  <tr
+                    key={product.id}
+                    className="hover:bg-rose-50 transition-colors"
+                  >
                     <td className="p-4 text-red-700">{product.id}</td>
                     <td className="p-4 text-red-700">
                       <EditableField

@@ -3,7 +3,7 @@ import Head from "next/head";
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-rose-50">
-      <title>Privacy Policy | Milk pukki</title>
+      <title>Privacy Policy | Pukki milk</title>
 
       <section className="relative h-64 flex items-center justify-center bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="text-center z-10 px-4">
@@ -149,7 +149,7 @@ export default function PrivacyPolicy() {
                 privacy@milkpukki.com
               </a>
               <br />
-              <strong>Mail:</strong> Milk pukki Privacy Officer, Akaki kality
+              <strong>Mail:</strong> Pukki milk Privacy Officer, Akaki kality
         
               <br />
               <strong>Phone:</strong> +251 1234567 (Mon-Fri, 9am-5pm PST)

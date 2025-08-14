@@ -53,7 +53,7 @@ export default function Signin() {
             });
           },
           onSuccess: () => {
-            toast.success("Welcome back!", {
+            toast.success("Welcome Dear!", {
               description: "You've been signed in successfully",
             });
             window.location.href = "/dashboard";

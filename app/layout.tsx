@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Milk Pukki",
+  title: "Pukki Milk",
   description: "Milk Pukkin Website",
 };
 

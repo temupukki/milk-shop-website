@@ -254,6 +254,7 @@ export default function OrdersPage() {
 
         {/* Orders Table */}
         <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+           <title>Order Management| Pukki milk</title>
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-rose-50">

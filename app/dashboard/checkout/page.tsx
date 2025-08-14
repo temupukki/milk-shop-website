@@ -16,7 +16,7 @@ import Image from "next/image";
 interface ShippingInfo {
   name: string;
   phone: string;
-   address: string;
+  address: string;
 }
 
 interface UserSession {
@@ -35,7 +35,7 @@ export default function CheckoutPage() {
   const [shippingInfo, setShippingInfo] = useState<ShippingInfo>({
     name: "",
     phone: "",
-     address: "",
+    address: "",
   });
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
@@ -43,19 +43,19 @@ export default function CheckoutPage() {
   useEffect(() => {
     const fetchSession = async () => {
       try {
-        const response = await fetch('/api/session');
-        if (!response.ok) throw new Error('Failed to fetch session');
-        
+        const response = await fetch("/api/session");
+        if (!response.ok) throw new Error("Failed to fetch session");
+
         const session: UserSession = await response.json();
-       
-        
+
         if (session?.user) {
-           const phoneNumber = session.user.email ? 
-    session.user.email.replace(/@.*$/, '') : ""; 
+          const phoneNumber = session.user.email
+            ? session.user.email.replace(/@.*$/, "")
+            : "";
           setShippingInfo({
             name: session.user.name || "",
             phone: phoneNumber || "",
-            address: session.user.image || ""
+            address: session.user.image || "",
           });
         }
       } catch (error) {
@@ -106,9 +106,7 @@ export default function CheckoutPage() {
       return;
     }
     if (!/^(09|07|9|7)\d{7,8}$/.test(shippingInfo.phone)) {
-      toast.error(
-        "Enter Valid phone number!"
-      );
+      toast.error("Enter Valid phone number!");
       setIsProcessing(false);
       return;
     }
@@ -171,6 +169,8 @@ export default function CheckoutPage() {
   if (cartItems.length === 0) {
     return (
       <div className="min-h-screen bg-rose-50 flex items-center justify-center">
+        <title>Checkout| Pukki milk</title>
+
         <div className="text-center">
           <p className="text-rose-800 text-lg">Your cart is empty</p>
           <button
@@ -212,8 +212,11 @@ export default function CheckoutPage() {
             <h2 className="text-xl font-bold text-rose-800 mb-6 flex items-center gap-2">
               <FiTruck /> Shipping Information
             </h2>
-            <p className="block text-sm font-bold italic text-red-400 mb-1">NB : If you want change the shipping Information you can edit these below boxes..</p>
-               <hr className="text-rose-600 my-3" />
+            <p className="block text-sm font-bold italic text-red-400 mb-1">
+              NB : If you want change the shipping Information you can edit
+              these below boxes..
+            </p>
+            <hr className="text-rose-600 my-3" />
             <div className="space-y-4 mt-3.5">
               <div>
                 <label className="block text-sm font-medium text-rose-700 mb-1">
@@ -278,11 +281,16 @@ export default function CheckoutPage() {
           </div>
 
           <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-bold text-rose-800 mb-6">Order Summary</h2>
+            <h2 className="text-xl font-bold text-rose-800 mb-6">
+              Order Summary
+            </h2>
 
             <div className="space-y-4 mb-6">
               {cartItems.map((item) => (
-                <div key={item.id} className="flex items-center gap-4 pb-4 border-b">
+                <div
+                  key={item.id}
+                  className="flex items-center gap-4 pb-4 border-b"
+                >
                   <div className="relative w-16 h-16 rounded-lg overflow-hidden">
                     <Image
                       src={item.image}
@@ -295,9 +303,7 @@ export default function CheckoutPage() {
                     <h4 className="font-medium text-rose-800">{item.name}</h4>
                     <p className="text-gray-600">ETB {item.price.toFixed(2)}</p>
                   </div>
-                  <div className="text-rose-700">
-                    × {item.quantity}
-                  </div>
+                  <div className="text-rose-700">× {item.quantity}</div>
                   <div className="font-medium text-rose-800">
                     ETB {(item.price * item.quantity).toFixed(2)}
                   </div>

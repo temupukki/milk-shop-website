@@ -106,7 +106,7 @@ export default async function Home() {
                 Our Dairy Story
               </h2>
               <p className="text-gray-700 mb-4 text-base sm:text-lg">
-                Milk Pukki began as a small family farm in 2025 with just 10
+               Pukki milk began as a small family farm in 2025 with just 10
                 cows. Today, we maintain those same values of quality and care
                 while serving thousands of happy customers.
               </p>

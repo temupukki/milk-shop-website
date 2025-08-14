@@ -51,13 +51,13 @@ export default function ContactUs() {
 
   return (
     <div className="min-h-screen bg-rose-50">
-      <title>Contact | Milk Pukki</title>
+      <title>Contact | Pukki Milk</title>
       
       {/* Hero Section - Mobile Optimized */}
       <section className="relative h-48 sm:h-64 flex items-center justify-center bg-gradient-to-r from-rose-100 to-amber-100">
         <div className="text-center z-10 px-4">
           <h1 className="text-3xl sm:text-4xl font-bold text-rose-800 mb-3 sm:mb-4">
-            Contact Milk Pukki
+            Contact Pukki milk
           </h1>
           <p className="text-lg sm:text-xl text-rose-700">
             We'd love to hear from you!
@@ -65,10 +65,10 @@ export default function ContactUs() {
         </div>
       </section>
 
-      {/* Main Content */}
+
       <section className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-          {/* Contact Form - Mobile Optimized */}
+
           <div className="bg-white rounded-xl shadow-md p-6 sm:p-8">
             <h2 className="text-xl sm:text-2xl font-bold text-rose-800 mb-4 sm:mb-6">
               Send Us a Message
