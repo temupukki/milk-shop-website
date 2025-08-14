@@ -3,13 +3,6 @@ import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { SignOutButton } from "./sign-out";
 
 function getInitials(name: string) {
   return name
@@ -31,6 +24,9 @@ export default async function Dashboard() {
     { href: "/dashboard/products", label: "Products" },
     { href: "/dashboard/about", label: "About" },
     { href: "/dashboard/contact", label: "Contact" },
+    { href: "/dashboard/profile", label: "Profile" },
+   
+    { href: "/dashboard/orders", label: "Orders" },
   ];
 
   return (
@@ -56,42 +52,26 @@ export default async function Dashboard() {
               </li>
             ))}
 
-            {/* User Dropdown */}
+            {/* User Avatar */}
             <li>
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rose-100 hover:bg-rose-200 text-rose-800 transition-colors border border-rose-200 text-sm font-medium">
-                  <span className="w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center font-semibold">
-                    {initials}
-                  </span>
-                  <span>{user?.name}</span>
-                </DropdownMenuTrigger>
+              <span className="w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center font-semibold">
+                {initials}
+              </span>
+            </li>
 
-                <DropdownMenuContent className="min-w-[160px] bg-white rounded-md shadow-lg border border-rose-100 p-1 text-black">
-                  <DropdownMenuItem>
-                    <Link href="/dashboard/profile" className="w-full">
-                      Profile
-                    </Link>
-                  </DropdownMenuItem>
-
-                  {user?.role === "ADMIN" && (
-                    <DropdownMenuItem>
-                      <Link href="/dashboard/admin" className="w-full">
-                        Admin Page
-                      </Link>
-                    </DropdownMenuItem>
-                  )}
-
-                  <DropdownMenuItem>
-                    <Link href="/dashboard/orders" className="w-full">
-                      Orders
-                    </Link>
-                  </DropdownMenuItem>
-
-                  <DropdownMenuItem>
-                    <SignOutButton />
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+            {/* Sign out */}
+            <li>
+              <form
+                action={async () => {
+                  "use server";
+                  await auth.api.signOut({ headers: await headers() });
+                  redirect("/sign-in");
+                }}
+              >
+                <Button className="bg-black text-white font-bold rounded px-4 py-2 hover:text-green-400">
+                  Sign out
+                </Button>
+              </form>
             </li>
           </ul>
 
@@ -116,58 +96,29 @@ export default async function Dashboard() {
               <span className="w-12 h-12 rounded-full bg-rose-500 text-white flex items-center justify-center font-semibold text-lg">
                 {initials}
               </span>
-              <span className="ml-3 font-medium">{user?.name}</span>
             </div>
 
             {links.map((link) => (
-              <label
+              <Link
                 key={link.href}
-                htmlFor="mobile-nav-toggle"
-                className="block"
+                href={link.href}
+                className="block py-2 px-4 rounded-lg text-black hover:text-rose-600 hover:bg-gray-50"
               >
-                <Link
-                  href={link.href}
-                  className="block py-2 px-4 rounded-lg text-black hover:text-rose-600 hover:bg-gray-50"
-                >
-                  {link.label}
-                </Link>
-              </label>
+                {link.label}
+              </Link>
             ))}
 
-            <hr className="border-gray-200" />
-
-            <label htmlFor="mobile-nav-toggle" className="block">
-              <Link
-                href="/dashboard/profile"
-                className="block py-2 px-4 rounded-lg text-black hover:text-rose-600 hover:bg-gray-50"
-              >
-                Profile
-              </Link>
-            </label>
-
-            {user?.role === "ADMIN" && (
-              <label htmlFor="mobile-nav-toggle" className="block">
-                <Link
-                  href="/dashboard/admin"
-                  className="block py-2 px-4 rounded-lg text-black hover:text-rose-600 hover:bg-gray-50"
-                >
-                  Admin Page
-                </Link>
-              </label>
-            )}
-
-            <label htmlFor="mobile-nav-toggle" className="block">
-              <Link
-                href="/dashboard/orders"
-                className="block py-2 px-4 rounded-lg text-black hover:text-rose-600 hover:bg-gray-50"
-              >
-                Orders
-              </Link>
-            </label>
-
-            <label htmlFor="mobile-nav-toggle" className="block">
-              <SignOutButton  />
-            </label>
+            <form
+              action={async () => {
+                "use server";
+                await auth.api.signOut({ headers: await headers() });
+                redirect("/sign-in");
+              }}
+            >
+              <Button className="w-full bg-black text-white font-semibold rounded-lg py-3 hover:shadow-md">
+                Sign out
+              </Button>
+            </form>
           </div>
         </div>
       </nav>

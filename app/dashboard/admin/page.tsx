@@ -122,7 +122,7 @@ export default async function Admin({
           <table className="w-full min-w-[800px]">
             <thead className="bg-gray-100">
               <tr>
-                {["ID", "Name", "Email", "Role", "Created At", "Updated At", "Actions"].map(
+                {["ID", "Name", "Email", "Role", "Created At", "Updated At"].map(
                   (title) => (
                     <th
                       key={title}
@@ -153,13 +153,7 @@ export default async function Admin({
                   <td className="p-4 text-gray-600">
                     {user.updatedAt ? formatDate(new Date(user.updatedAt)) : "-"}
                   </td>
-                  <td className="p-4 text-center">
-                    {user.role === "USER" ? (
-                      <DeleteUserButton userId={user.id} />
-                    ) : (
-                      <PlaceHolderDeleteUserButton />
-                    )}
-                  </td>
+               
                 </tr>
               ))}
             </tbody>

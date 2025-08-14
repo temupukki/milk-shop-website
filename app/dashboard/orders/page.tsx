@@ -75,7 +75,7 @@ export default function OrdersPage() {
 
         pendingOrders.forEach((order: Order) => {
           const createdAt = new Date(order.createdAt);
-          const expirationTime = addHours(createdAt, 24);
+          const expirationTime = addMinutes(createdAt, 1440);
           const now = new Date();
 
           if (now > expirationTime) {
@@ -109,7 +109,7 @@ export default function OrdersPage() {
         const order = orders.find((o) => o.id === orderId);
         if (order && order.status === "PENDING") {
           const createdAt = new Date(order.createdAt);
-          const expirationTime = addHours(createdAt,24);
+          const expirationTime = addMinutes(createdAt,1440);
           const timeLeft = differenceInMilliseconds(expirationTime, now);
 
           if (timeLeft <= 0) {
@@ -137,7 +137,7 @@ export default function OrdersPage() {
     const expiredOrders = orders.filter((order) => {
       if (order.status !== "PENDING") return false;
       const createdAt = new Date(order.createdAt);
-      const expirationTime = addHours(createdAt, 24); // same expiration time
+      const expirationTime = addMinutes(createdAt, 1440); // same expiration time
       return now > expirationTime;
     });
 
