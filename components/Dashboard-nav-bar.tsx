@@ -50,7 +50,7 @@ export default function Dashboard() {
       <header className="sticky top-0 z-50 w-full bg-white shadow-md border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
           <h1 className="font-bold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent text-2xl md:text-3xl tracking-tight">
-            Milk Pukki
+            Pukki milk
           </h1>
 
           {/* Desktop Menu */}
